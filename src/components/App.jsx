@@ -1,5 +1,6 @@
 import { Component } from 'react';
 import { ToastContainer } from 'react-toastify';
+import { useState } from 'react';
 import 'react-toastify/dist/ReactToastify.css';
 import fetchImage from 'components/services/api';
 import Searchbar from './Searchbar';
