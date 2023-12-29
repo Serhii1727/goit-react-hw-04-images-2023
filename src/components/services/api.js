@@ -8,8 +8,6 @@ export default function fetchImage(searchQuery, page) {
       return res.json();
     }
 
-    return Promise.reject(
-      new Error('There was nothing found for your request')
-    );
+    return Promise.reject(new Error('“Oops, something went wrong”'));
   });
 }
