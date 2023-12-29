@@ -17,7 +17,6 @@ export function App() {
   const [modalData, setModalData] = useState(null);
   const [status, setStatus] = useState('idle');
   const [showLoadMore, setShowLoadMore] = useState(false);
-  const [error, setError] = useState(null);
 
   useEffect(() => {
     setStatus('pending');
@@ -48,7 +47,6 @@ export function App() {
         setImages(prevImages => [...prevImages, ...images]);
       })
       .catch(error => {
-        setError(error.message);
         setStatus('rejected');
       });
   }, [page, searchQuery]);
