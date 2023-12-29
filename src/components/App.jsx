@@ -19,17 +19,15 @@ export function App() {
   const [showLoadMore, setShowLoadMore] = useState(false);
 
   useEffect(() => {
-    setStatus('pending');
-
-    if (searchQuery === '') {
+    if (!searchQuery) {
       setStatus('idle');
       return;
     }
 
-    fetchImage(searchQuery, page)
-      .then(data => {
-        const { totalHits, hits } = data;
+    setStatus('pending');
 
+    fetchImage(searchQuery, page)
+      .then(({ totalHits, hits }) => {
         const isShow = page < Math.ceil(totalHits / 12);
 
         setShowLoadMore(isShow);
